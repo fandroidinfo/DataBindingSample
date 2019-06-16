@@ -21,8 +21,8 @@
         xmlns:tools="http://schemas.android.com/tools">
     <data>
 
-        <variable name="name" type="String"/>
-        <variable name="lastName" type="String"/>
+        <variable name="viewmodel"
+                  type="info.fandroid.databindingsample.data.SimpleViewModel"/>
 
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,7 +31,7 @@
 
         <TextView
                 android:id="@+id/plain_name"
-                android:text="@{name}"
+                android:text="@{viewmodel.name}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -44,7 +44,7 @@
 
         <TextView
                 android:id="@+id/plain_lastname"
-                android:text="@{lastName}"
+                android:text="@{viewmodel.lastName}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -74,6 +74,7 @@
                 android:id="@+id/likes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{Integer.toString(viewmodel.likes)}"
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 app:layout_constraintBottom_toTopOf="@+id/like_button"
                 app:layout_constraintEnd_toEndOf="@+id/likes_label"
@@ -88,7 +89,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:onClick="onLike"
+                android:onClick="@{() -> viewmodel.onLike()}"
                 android:text="@string/like"
                 app:layout_constraintBottom_toTopOf="@+id/progressBar"
                 app:layout_constraintEnd_toEndOf="@+id/imageView"
