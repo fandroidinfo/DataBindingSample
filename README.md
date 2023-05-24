@@ -1,2 +1,2 @@
 # DataBindingSample
-Base project without DataBinding
+Base project with DataBinding
